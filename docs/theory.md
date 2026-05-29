@@ -1,11 +1,9 @@
-# Theory Background
-
 ## EAM-like Energy Form
 
 The embedded-atom method expresses the total energy of a metallic system as the sum of pair-interaction and embedding-energy contributions:
 
 ```math
-E = \sum_{i<j} \phi_{ij}(r_{ij}) + \sum_i F_i(\rho_i)
+E = \sum_{i \lt j} \phi_{ij}(r_{ij}) + \sum_i F_i(\rho_i)
 ```
 
 where $\phi_{ij}(r_{ij})$ is the pair-interaction term between atoms $i$ and $j$, and $F_i(\rho_i)$ is the embedding energy of atom $i$ in the local electron-density environment.
@@ -17,6 +15,7 @@ The local electron density around atom $i$ is commonly written as:
 ```
 
 where $\rho_j(r_{ij})$ represents the electron-density contribution from neighboring atom $j$ at distance $r_{ij}$.
+
 
 ## KAN-based EAM/MEAM Representation
 
