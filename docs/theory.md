@@ -19,7 +19,7 @@ where $\rho_j(r_{ij})$ represents the electron-density contribution from neighbo
 
 ## KAN-based EAM/MEAM Representation
 
-In this project, the functions \( \phi(r) \), \( \rho(r) \), and \( F(\rho) \) are represented using trainable Kolmogorov-Arnold Network functions.
+In this project, the functions $\phi(r)$, $\rho(r)$, and $F(\rho)$ are represented using trainable Kolmogorov-Arnold Network functions.
 
 The purpose is to improve the flexibility of classical EAM/MEAM-like potential forms while retaining a physically structured energy decomposition. Compared with fully black-box neural-network potentials, this approach keeps the model closer to classical interatomic-potential theory while allowing the functional forms to be learned from first-principles data.
 
