@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "KAN-EAM/MEAM Interatomic Potential Framework"
+message: "If you use this repository after publication, please cite the associated paper and this repository. Before publication, reuse is not permitted without written permission."
+type: software
+authors:
+  - family-names: Huang
+    given-names: Hung-Liang
+repository-code: "https://github.com/Hung-Liang-Huang/Komogorov-Arnold-Network-based-EAM"
+version: "0.1.0"
+date-released: "2026-05-27"

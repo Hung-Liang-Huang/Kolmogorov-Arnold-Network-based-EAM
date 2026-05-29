@@ -1,0 +1,24 @@
+system:
+  elements: ["Ag"]
+  cutoff: 6.0
+
+data:
+  raw_vasp_dir: "./OUTCAR_examples/"
+  processed_data: "./processed/train_data.npz"
+
+model:
+  type: "KAN_EAM"
+  hidden_dim: 64
+  grid_size: 8
+
+training:
+  epochs: 1000
+  learning_rate: 0.001
+  energy_weight: 1.0
+  force_weight: 10.0
+  batch_size: 4
+
+output:
+  run_dir: "./runs/ag_demo"
+  checkpoint: "./runs/ag_demo/model.pt"
+  exported_potential: "./runs/ag_demo/KAN_Ag.eam.fs"

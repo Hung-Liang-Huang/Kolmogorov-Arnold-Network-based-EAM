@@ -1,0 +1,61 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Python environments
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Large model/checkpoint files
+*.pt
+*.pth
+*.ckpt
+*.pb
+
+# VASP files that should not be uploaded
+POTCAR
+WAVECAR
+CHGCAR
+CHG
+OUTCAR
+XDATCAR
+vasprun.xml
+DOSCAR
+EIGENVAL
+IBZKPT
+PROCAR
+OSZICAR
+
+# LAMMPS output files
+log.lammps
+dump.*
+*.lammpstrj
+restart.*
+*.bin
+
+# Private or large data
+data/
+datasets/
+raw_data/
+training_data/
+*.npy
+*.npz
+*.h5
+*.hdf5
+
+# Local output folders
+runs/
+outputs/
+results/
+checkpoints/
+trained_models/
+exported_potentials/
+
+# OS files
+.DS_Store
+Thumbs.db

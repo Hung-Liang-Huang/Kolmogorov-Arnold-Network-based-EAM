@@ -1,0 +1,17 @@
+name: kan-eam-meam
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - pyyaml
+  - tqdm
+  - scikit-learn
+  - ase
+  - pip
+  - pip:
+      - torch
