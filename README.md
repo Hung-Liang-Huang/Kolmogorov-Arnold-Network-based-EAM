@@ -1,7 +1,8 @@
-# KAN-EAM/MEAM Interatomic Potential Framework
+# KAN-EAM Interatomic Potential Workflow
 
+This repository contains a Python/PyTorch workflow for developing physically motivated machine-learning interatomic potentials by integrating Kolmogorov-Arnold Networks into EAM-like potential forms.
 
-This repository contains a Python/PyTorch workflow for developing physically motivated machine-learning interatomic potentials by integrating Kolmogorov-Arnold Networks into EAM- and MEAM-like potential forms.
+The current public version focuses on the KAN-EAM workflow, including VASP data processing, PyTorch training, model validation, and LAMMPS EAM/fs export. A KAN-MEAM extension is currently under development and will be added after successful testing and validation.
 
 The project aims to combine the physical interpretability of classical interatomic potentials with the flexibility of machine learning, while maintaining compatibility with molecular dynamics workflows such as LAMMPS.
 
@@ -19,30 +20,33 @@ See `NOTICE.md` for details.
 
 ## Motivation
 
-Classical EAM and MEAM potentials are computationally efficient and physically interpretable, but their fixed analytical forms can limit flexibility for complex metallic systems. Fully neural-network-based potentials are flexible, but they may reduce interpretability and can require large training datasets.
+Classical EAM potentials are computationally efficient and physically interpretable, but their fixed analytical forms can limit flexibility for complex metallic systems. Fully neural-network-based potentials are flexible, but they may reduce interpretability and can require large training datasets.
 
-This project explores a physically structured approach by replacing key EAM/MEAM functions, such as pair-interaction, electron-density, and embedding functions, with trainable KAN-based representations.
+This project explores a physically structured approach by replacing key EAM functions, such as pair-interaction, electron-density, and embedding functions, with trainable KAN-based representations.
+
+The longer-term goal is to extend this framework toward MEAM-like potential forms, where angular or environment-dependent contributions can be incorporated while retaining physical interpretability.
 
 ## Main Features
 
-- VASP OUTCAR data processing for energy and force training data
-- PyTorch-based model training
-- Energy and force validation using parity plots
-- Export of trained models to LAMMPS-compatible EAM/fs potential files
-- Documentation for theory and workflow
-- Template LAMMPS input files for exported-potential testing
+* VASP OUTCAR data processing for energy and force training data
+* PyTorch-based KAN-EAM model training
+* Energy and force validation using parity plots
+* Export of trained models to LAMMPS-compatible EAM/fs potential files
+* Documentation for theory and workflow
+* Template LAMMPS input files for exported-potential testing
+* Demonstration figures for an Ag test case
 
 ## Repository Structure
 
 ```text
 scripts/
     data_process.py      Convert VASP OUTCAR files into training data
-    training.py          Train the KAN-EAM/MEAM model
+    training.py          Train the KAN-EAM model
     validate.py          Validate trained model and generate parity plots
     export_lammps.py     Export trained .pt model to LAMMPS EAM/fs format
 
 docs/
-    theory.md            Theory background of KAN-EAM/MEAM potentials
+    theory.md            Theory background of KAN-EAM potentials
     workflow.md          Step-by-step workflow explanation
 
 examples/
@@ -60,7 +64,7 @@ figures/
 The typical workflow is:
 
 1. Run `data_process.py` to convert VASP OUTCAR files into training data.
-2. Run `training.py` to train the KAN-EAM/MEAM model.
+2. Run `training.py` to train the KAN-EAM model.
 3. Run `validate.py` to generate energy and force parity plots.
 4. Run `export_lammps.py` to export the trained `.pt` model into a LAMMPS-compatible EAM/fs potential file.
 5. Test the exported potential in LAMMPS.
@@ -119,6 +123,10 @@ For the full workflow explanation, see:
 ```text
 docs/workflow.md
 ```
+
+## Development Status
+
+The current repository provides the tested KAN-EAM workflow. The KAN-MEAM implementation is under active development and will be uploaded after successful testing, validation, and documentation.
 
 ## Notes
 
