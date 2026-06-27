@@ -1,11 +1,9 @@
 # Figures
 
-This folder can contain example figures generated from model validation.
+This folder contains validation and learned-function figures for the KAN-EAM model.
 
-Figures:
-
-- `energy_parity.png`: DFT energy vs model energy
-- `force_parity.png`: DFT force vs model force
-- `F_shapes.png`: learned embedding functions
-- `rho_shapes.png`: learned density functions
-- `phi_shapes.png`: learned pair functions
+- `energy_parity.png`: DFT relative energy vs model-predicted relative energy, grouped by structure category.
+- `force_parity.png`: DFT force components vs model-predicted force components, grouped by structure category.
+- `F_shapes.png`: learned embedding function F(rho).
+- `rho_shapes.png`: learned electron-density function rho(r).
+- `phi_shapes.png`: learned pair-interaction function phi(r).
