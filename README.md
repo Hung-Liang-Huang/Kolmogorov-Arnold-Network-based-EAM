@@ -69,6 +69,34 @@ The typical workflow is:
 4. Run `export_lammps.py` to export the trained `.pt` model into a LAMMPS-compatible EAM/fs potential file.
 5. Test the exported potential in LAMMPS.
 
+## Recommended training database composition
+
+To improve the stability and transferability of the KAN-EAM potential, the training database should include several physically important anchor and validation configurations. In the current training workflow, different database categories are assigned different energy and force weights through the `frame_anchor_weights()` function.
+
+The recommended database categories are:
+
+- `01_anchor_fcc_eos`: FCC equation-of-state structures. These configurations anchor the cohesive-energy curve and equilibrium lattice behavior.
+- `02_anchor_fcc_small_displacement`: FCC small-displacement structures. These configurations strongly constrain harmonic force behavior around equilibrium.
+- `03_anchor_fcc_elastic_strain`: FCC elastic-strain structures. These configurations improve the description of elastic response under homogeneous deformation.
+- `04_fcc_finite_temperature_aimd`: finite-temperature FCC AIMD snapshots. These configurations improve robustness for thermally distorted local environments.
+- `05_vacancy_and_point_defects`: vacancy and point-defect structures. These configurations improve defect energetics and local-environment transferability.
+- `06_surfaces`: surface structures. These configurations improve the behavior of low-coordination atomic environments.
+
+The current category-dependent energy and force weights are:
+
+| Database category | Energy weight | Force weight |
+|---|---:|---:|
+| `01_anchor_fcc_eos` | 20.0 | 5.0 |
+| `02_anchor_fcc_small_displacement` | 10.0 | 20.0 |
+| `03_anchor_fcc_elastic_strain` | 15.0 | 10.0 |
+| `04_fcc_finite_temperature_aimd` | 5.0 | 5.0 |
+| `05_vacancy_and_point_defects` | 3.0 | 3.0 |
+| `06_surfaces` | 2.0 | 3.0 |
+
+The EOS and elastic-strain datasets are weighted more strongly for energy fitting, while the small-displacement dataset is weighted more strongly for force fitting. Defect, surface, and finite-temperature datasets are assigned moderate weights to improve transferability without overwhelming the bulk anchor data.
+
+These datasets are recommended because relying only on near-equilibrium bulk structures may produce good parity performance on simple validation data but poor transferability to strained, defective, finite-temperature, or low-coordination configurations.
+
 ## Installation
 
 Using conda:
